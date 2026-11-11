@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "switch-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "${sourceDir}/cmake/SwitchToolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "NXLINK_IP": ""
+      }
+    },
+    {
+      "name": "switch-debug",
+      "displayName": "Switch Debug",
+      "inherits": "switch-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "switch-release",
+      "displayName": "Switch Release",
+      "inherits": "switch-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "switch-debug-nxlink",
+      "displayName": "Switch Debug (nxlink after build)",
+      "description": "Every successful build uploads + launches the .nro on the Switch",
+      "inherits": "switch-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "NXLINK_ON_BUILD": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "switch-debug",        "configurePreset": "switch-debug" },
+    { "name": "switch-release",      "configurePreset": "switch-release" },
+    { "name": "switch-debug-nxlink", "configurePreset": "switch-debug-nxlink" },
+    { "name": "deploy", "configurePreset": "switch-debug", "targets": ["deploy"] },
+    { "name": "run",    "configurePreset": "switch-debug", "targets": ["run"] }
+  ]
+}

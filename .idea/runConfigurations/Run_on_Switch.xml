@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run on Switch (nxlink)" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-s -r 3 $CMakeCurrentBuildDir$/RaylibSwitch.nro" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RaylibSwitch" TARGET_NAME="RaylibSwitch_nro" RUN_PATH="C:/devkitPro/tools/bin/nxlink.exe">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
